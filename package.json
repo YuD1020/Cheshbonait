@@ -2,9 +2,28 @@
   "name": "project",
   "version": "1.0.0",
   "description": "bookkeepingProject",
-  "main": "src/index.js",
+  "main": "dist/index.ts",
   "scripts": {
+    "build": "npx tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.21.1",
+    "mongodb": "^6.2.0"
+    
+  },
+  "devDependencies": {
+    
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.4",
+    "typescript": "^5.6.2",
+    "jest": "^29.0.0",
+    "nodemon": "^3.0.2"
+
   },
   "repository": {
     "type": "git",
