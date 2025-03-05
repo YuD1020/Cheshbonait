@@ -1,0 +1,18 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "bookkeepingProject",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "//FS25/R/!! תכנות ו2 התשפה/!!!!קבוצת חשבונות/project Y&M&C&S/project/.git/"
+  },
+  "keywords": [
+    "bookkeepingProject"
+  ],
+  "author": "YMCS",
+  "license": "ISC"
+}
