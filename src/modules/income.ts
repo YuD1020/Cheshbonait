@@ -1,13 +1,9 @@
 
-// const {requireFieldsValidation,requireTypeValidation}= require('../services/validations/model')
+import {requireFieldsValidation} from  '../services/validations/model'
 
-function newIncome(income: JSON) {
+export function newIncome(income: JSON) {
     if (!requireFieldsValidation(income,MODEL_NAMES.INCOME)){
         throw Error('require field validition')
     }
-    if (!requireTypeValidation(income,MODEL_NAMES.INCOME)){
-        throw Error('require type validition')
-
+    
     }
-    }
-module.exports = { newIncome }

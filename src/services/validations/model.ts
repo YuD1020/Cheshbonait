@@ -1,5 +1,5 @@
 
-function requireFieldsValidation(model: Object, object: Object, status: String = 'insert') {
+export function requireFieldsValidation(model:object, object: Object, status: String = 'insert') {
     const arrMissing: [] = []
 
     const { fields }: any = model
@@ -11,20 +11,5 @@ function requireFieldsValidation(model: Object, object: Object, status: String =
     return arrMissing.length === 0 ? true : arrMissing
 }
 
-function requireTypeValidation(model: Object, object: Object) {
-    const arrMissing: [] = []
-    const { fields }: any = model
 
-    fields.forEach(({ name, type }: { name: String, type: any }) => {
-        // if (object[name]) {
-        //     if (typeof object[name] !== type)
-        //         arrMissing.push({ name, type: typeof object[name] })
-        // }
-    })
-    return arrMissing.length === 0 ? true : arrMissing
-}
 
-module.exports = {
-    requireFieldsValidation,
-    requireTypeValidation
-}

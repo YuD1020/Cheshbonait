@@ -10,7 +10,7 @@ router.post('/', express.json(), (req: Request, res: Response, next: NextFunctio
     try {
         const income = req.body
         const response = newIncome(income)
-        // res.status(201).json(response)
+        // res.status(201)
         // res.locals['response'] = 201
 
     }
