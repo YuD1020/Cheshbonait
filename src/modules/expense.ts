@@ -1,4 +1,4 @@
-class Expence {
+export class Expence {
     provider: String;
     category: String;
     sum: number;

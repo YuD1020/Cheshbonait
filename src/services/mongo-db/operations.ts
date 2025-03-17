@@ -1,37 +1,37 @@
-const { getClient } = require("./connection")
+import { getClient } from "./connection"
+import { Expence } from "../../modules/expense"
+export class MongodbOperations {
 
-class MongodbOperations{
-    dbName:string;
-    collectionName:string;
-    constructor({dbName,collectionName}:{dbName:string,collectionName:string}){
-        this.dbName=dbName
-        this.collectionName=collectionName
-    }
- 
-    set DbName(value:string){
-        this.dbName=value
+    dbName:string
+    collectionName:string
+    constructor({ dbName, collectionName }: { dbName: string, collectionName: string }) {
+        this.dbName = dbName
+        this.collectionName = collectionName
     }
 
-    set colletionName(value:string){
-        this.colletionName=value
+    set DbName(value: string) {
+        this.dbName = value
     }
-    get MyCollection(){
-        const client=getClient()
-        if(!client){
+
+    set CollectionName(value: string) {
+        this.collectionName = value
+    }
+    get MyCollection() {
+        const client: any = getClient()
+        if (!client) {
             throw Error('no connection to database')
         }
-        if(!this.dbName){
+        if (!this.dbName) {
             throw Error('database name is required')
         }
-        if(!this.colletionName){
+        if (!this.collectionName) {
             throw Error('collection name is required')
         }
-        return client.db(this.dbName).colletion(this.colletionName)
+        return client.db(this.dbName).collection(this.collectionName)
     }
-    async addItem(item:Expence){
-        const response= await this.MyCollection.insertOne(item)
-        return  response;
+    async addItem(item: Expence) {
+        const response = await this.MyCollection.insertOne(item)
+        return response;
     }
 }
 
-module.exports=MongodbOperations
