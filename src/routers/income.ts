@@ -1,26 +1,25 @@
 import { NextFunction } from "express"
-const { newIncome } = require('../modules/income')
+import express, {  Request, Response } from "express";
+import { Income } from "src/modules/income";
+import { createIncome } from "src/services/update/income";
 
-const express = require('express')
-const router = express.Router()
+export const routerIncome = express.Router()
 
 
 
-router.post('/', express.json(), (req: Request, res: Response, next: NextFunction) => {
+routerIncome.post('/', express.json(), (req: Request, res: Response, next: NextFunction) => {
     try {
-        const income = req.body
-        const response = newIncome(income)
-        // res.status(201)
-        // res.locals['response'] = 201
-
+        const income:Required<Income> = req.body
+        createIncome(income)
+        res.status(201)
+        res.locals['response'] = 201
     }
     catch (error: any) {
-        // res.status(500).json({ error: error.message })
-        // res.locals['response'] = 500
+        res.status(500).json({ error: error.message })
+        res.locals['response'] = 500
 
     }
     next()
 })
 
 
-module.exports = router
