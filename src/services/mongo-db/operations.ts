@@ -29,7 +29,7 @@ export class MongodbOperations {
         }
         return client.db(this.dbName).collection(this.collectionName)
     }
-    async addItem(item: Expence) {
+    async addItem(item: any) {
         const response = await this.MyCollection.insertOne(item)
         return response;
     }

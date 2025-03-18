@@ -4,7 +4,6 @@ export interface Income{
     date:string;
     sum:number;
     description:string;
-    
 }
 
 

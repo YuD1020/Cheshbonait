@@ -15,15 +15,13 @@ const MONGO_URL="mongodb://127.0.0.1:27017"
 const server=http.createServer(app)
 
 open(MONGO_URL).then(() => {
-  server.listen(PORT,HOST,  () => {
+  app.listen(PORT,HOST,  () => {
       console.log(`http://${HOST}:${PORT}`);
   })
 }).catch((err) => console.log(err))
 console.log('after connecting to mongo');
 
-app.listen(PORT, () => {
-  console.log(`[server]: Server is running at http://localhost:${PORT}`);
-});
+
 app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server");
 });
