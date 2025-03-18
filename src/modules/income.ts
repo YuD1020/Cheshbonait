@@ -1,5 +1,4 @@
 export interface Income{
-
     client:string;
     date:string;
     sum:number;

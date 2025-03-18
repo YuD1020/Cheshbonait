@@ -1,5 +1,4 @@
 import { getClient } from "./connection"
-import { Expence } from "../../modules/expense"
 export class MongodbOperations {
 
     dbName:string
