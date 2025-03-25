@@ -6,16 +6,15 @@ dotenv.config();
 import http from "http"
 
 const app: Express = express();
-const PORT = 3002;
+const PORT = 3000;
 const HOST = "127.0.0.1"
-const MONGO_URL="mongodb://127.0.0.1:27017"
-//  const MONGO_URL= process.env.MONGO_URL
-// console.log(MONGO_URL);
-const server=http.createServer(app)
+const MONGO_URL = "mongodb://127.0.0.1:27017"
+
+const server = http.createServer(app)
 
 open(MONGO_URL).then(() => {
-  server.listen(PORT,HOST,  () => {
-      console.log(`http://${HOST}:${PORT}`);
+  server.listen(PORT, HOST, () => {
+    console.log(`http://${HOST}:${PORT}`);
   })
 }).catch((err) => console.log(err))
 console.log('after connecting to mongo');

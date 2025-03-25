@@ -1,5 +1,5 @@
 import { getClient } from "./connection"
-import { Expence } from "../../modules/expense"
+
 export class MongodbOperations {
 
     dbName:string
@@ -29,9 +29,18 @@ export class MongodbOperations {
         }
         return client.db(this.dbName).collection(this.collectionName)
     }
-    async addItem(item: Expence) {
+    async addItem(item: any) {
         const response = await this.MyCollection.insertOne(item)
         return response;
     }
+    async findItem({ filter = {}, project = {} } = {}) {
+        return await this.MyCollection.findOne(filter, project)
+    }
+    async find({ filter = {}, project = {} } = {}) {
+        return await this.MyCollection.find(filter, project).toArray()
+    }
+    async updateItem({ filter = {}, set = {} }) {
+        const response = await this.MyCollection.updateOne(filter, set)
+        return response
+    }
 }
-
