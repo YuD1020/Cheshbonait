@@ -1,21 +1,20 @@
-const { MongoClient } = require('mongodb')
+import { MongoClient } from 'mongodb' 
 
 let client:any = null
 
-const openM = async (url:String) => {
+export const open = async (url:string) => {
     if (!client) {
         client = new MongoClient(url)
         await client.connect()
     }
 }
 
-const closeM = async () => {
+ export const close = async () => {
     if (client)
         await client.close()
 }
 
-const getClientM = () => client
+export const getClient = () => client
 
-module.exports = { openM, closeM, getClientM }
 
 
