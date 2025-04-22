@@ -2,9 +2,11 @@ import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import { open } from "./services/mongo-db/connection"
 import { router } from "./routers/expense"
+import cors from "cors"
+
 dotenv.config();
 import http from "http"
-import {displayRouter } from "./routers/display";
+import { displayRouter } from "./routers/display";
 const app: Express = express();
 const PORT = 3001;
 const HOST = "127.0.0.1"
@@ -24,6 +26,7 @@ console.log('after connecting to mongo');
 app.listen(PORT, () => {
   console.log(`[server]: Server is running at http://localhost:${PORT}`);
 });
+app.use(cors())
 app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server");
 });

@@ -2,7 +2,8 @@ import { NextFunction } from "express"
 import {createExpence} from'../update/expense'
 import express, { Express, Request, Response } from "express";
 export const router: Express = express();
-router.use('/', express.json(), async(req: Request, res: Response, next: NextFunction) => {
+router.use('', express.json())
+router.post('/expense', async(req: Request, res: Response, next: NextFunction) => {
     if (!res.locals['response']) {
         console.log("req.body")
         console.log(req.body)
