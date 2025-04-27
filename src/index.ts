@@ -4,7 +4,7 @@ import {open} from "./services/mongo-db/connection"
 import {routerIncome} from './routers/income'
 import {routerExpense} from  "../src/routers/expense" 
 import http from "http"
-
+import cors from "cors"
 dotenv.config();
 
 const app: Express = express();
@@ -20,6 +20,7 @@ open(MONGO_URL).then(() => {
   })
 }).catch((err) => console.log(err))
 
+app.use(cors())
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server");

@@ -5,12 +5,12 @@ import { createIncome } from "../update/income";
 
 export const routerIncome = express.Router()
 
-routerIncome.use('/', express.json(), (req: Request, res: Response, next: NextFunction) => {
+routerIncome.use('/', express.json(), (req: Request, res: Response, next: NextFunction) => {    
     if (!res.locals['response']) {
     try {
         const income:Required<Income> = req.body
         createIncome(income)
-        res.status(201).json({ })
+        res.status(201).json({})
         res.locals['response'] = 201
     }
     catch (error: any) {
