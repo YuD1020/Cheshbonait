@@ -2,12 +2,13 @@ import { NextFunction } from "express"
 import express, { Express, Request, Response } from "express";
 import { findAllExpense, findCategoryExpense, findMonthExpense, findMonthYearExpense, findYearExpense } from "../display/expense";
 export const displayRouter: Express = express();
-displayRouter.use("/", express.json(),async(req: Request, res: Response, next: NextFunction) => {
+displayRouter.use("/", express.json())
+displayRouter.get("/expense", express.json(),async(req: Request, res: Response, next: NextFunction) => {
     if (!res.locals['response']) {
-        console.log("req.body")
-        console.log(req.body)
+        console.log("req.params")
+        console.log(req.params)
         try {
-            // const { month } = req.body
+            // const { month } = req.params
             // console.log(month)
             const response =  await findAllExpense()
             res.status(201).json(response)
@@ -21,14 +22,13 @@ displayRouter.use("/", express.json(),async(req: Request, res: Response, next: N
     }
     next()
 })
-displayRouter.use("/expense", express.json())
-displayRouter.get('/expense/year',async (req: Request, res: Response, next: NextFunction) => {
+displayRouter.get('/expense/year/:year',async (req: Request, res: Response, next: NextFunction) => {
     
     if (!res.locals['response']) {
-        console.log("req.body")
-        console.log(req.body)
+        console.log("req.params")
+        console.log(req.params)
         try {
-            const { year } = req.body
+            const { year } = req.params
             console.log(year)
             const response =  await findYearExpense({ year: year })
             res.status(201).json(response)
@@ -42,13 +42,13 @@ displayRouter.get('/expense/year',async (req: Request, res: Response, next: Next
     }
     next()
 })
-displayRouter.get('/expense/month',async (req: Request, res: Response, next: NextFunction) => {
+displayRouter.get('/expense/month/:month',async (req: Request, res: Response, next: NextFunction) => {
     
     if (!res.locals['response']) {
-        console.log("req.body")
-        console.log(req.body)
+        console.log("req.params")
+        console.log(req.params)
         try {
-            const { month } = req.body
+            const { month } = req.params
             console.log(month)
             const response =  await findMonthExpense({month: month })
             res.status(201).json(response)
@@ -67,10 +67,10 @@ displayRouter.get('/expense/month',async (req: Request, res: Response, next: Nex
 displayRouter.get('/expense/all',async (req: Request, res: Response, next: NextFunction) => {
     
     if (!res.locals['response']) {
-        console.log("req.body")
-        console.log(req.body)
+        console.log("req.params")
+        console.log(req.params)
         try {
-            // const { month } = req.body
+            // const { month } = req.params
             // console.log(month)
             const response =  await findAllExpense()
             res.status(201).json(response)
@@ -85,15 +85,17 @@ displayRouter.get('/expense/all',async (req: Request, res: Response, next: NextF
     next()
 })
 
-displayRouter.get('/expense/monthInYear',async (req: Request, res: Response, next: NextFunction) => {
+displayRouter.get('/expense/monthInYear/:year/:month',async (req: Request, res: Response, next: NextFunction) => {
     
     if (!res.locals['response']) {
-        console.log("req.body")
-        console.log(req.body)
+        console.log("req.params")
+        console.log(req.params)
         try {
-            const { year,month } = req.body
+            const { year,month } = req.params
+          const intYear=parseInt(year)
+          const intMonth=parseInt(month)
             console.log(year,month)
-            const response =  await findMonthYearExpense({ year: year ,month:month})
+            const response =  await findMonthYearExpense({  year:intYear ,month:intMonth})
             res.status(201).json(response)
             res.locals['response'] = 201
         }
@@ -105,13 +107,13 @@ displayRouter.get('/expense/monthInYear',async (req: Request, res: Response, nex
     }
     next()
 })
-displayRouter.get('/expense/category',async (req: Request, res: Response, next: NextFunction) => {
+displayRouter.get('/expense/category/:category',async (req: Request, res: Response, next: NextFunction) => {
     
     if (!res.locals['response']) {
-        console.log("req.body")
-        console.log(req.body)
+        console.log("req.params")
+        console.log(req.params)
         try {
-            const { category} = req.body
+            const { category} = req.params
             console.log(category)
             const response =  await findCategoryExpense({ category:category})
             res.status(201).json(response)

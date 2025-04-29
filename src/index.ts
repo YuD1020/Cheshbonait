@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from "express";
+import express, { Express, NextFunction, Request, Response } from "express";
 import dotenv from "dotenv";
 import { open } from "./services/mongo-db/connection"
 import { router } from "./routers/expense"
@@ -8,7 +8,7 @@ dotenv.config();
 import http from "http"
 import { displayRouter } from "./routers/display";
 const app: Express = express();
-const PORT = 3001;
+const PORT = 3002;
 const HOST = "127.0.0.1"
 const MONGO_URL = "mongodb://127.0.0.1:27017"
 
@@ -33,3 +33,11 @@ app.get("/", (req: Request, res: Response) => {
 app.use("/display", displayRouter);
 app.use("/update", router);
 
+app.use('/*',(req: Request, res: Response,next:NextFunction)=>{
+  if(!res.locals['response']){
+    const {url}=req
+    res.status(404).send(`${req.method}:"${req.baseUrl}"not found`)
+    res.locals['response']=404
+  }
+  next()
+})
