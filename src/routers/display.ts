@@ -30,7 +30,8 @@ displayRouter.get('/expense/year/:year',async (req: Request, res: Response, next
         try {
             const { year } = req.params
             console.log(year)
-            const response =  await findYearExpense({ year: year })
+            const intYear= parseInt(year)
+            const response =  await findYearExpense({ year: intYear })
             res.status(201).json(response)
             res.locals['response'] = 201
         }
@@ -50,7 +51,8 @@ displayRouter.get('/expense/month/:month',async (req: Request, res: Response, ne
         try {
             const { month } = req.params
             console.log(month)
-            const response =  await findMonthExpense({month: month })
+            const intMonth=parseInt(month)
+            const response =  await findMonthExpense({month: intMonth })
             res.status(201).json(response)
             res.locals['response'] = 201
         }
