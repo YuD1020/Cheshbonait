@@ -7,7 +7,7 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - ..:/workspace:cached
+      - .:/workspace:cached
     working_dir: /workspace
     environment:
       - NODE_ENV=development
