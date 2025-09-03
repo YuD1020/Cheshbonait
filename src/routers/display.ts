@@ -5,13 +5,11 @@ export const displayRouter: Express = express();
 displayRouter.use("/", express.json())
 displayRouter.get("/expense", express.json(),async(req: Request, res: Response, next: NextFunction) => {
     if (!res.locals['response']) {
-        console.log("req.params")
-        console.log(req.params)
         try {
             // const { month } = req.params
             // console.log(month)
             const response =  await findAllExpense()
-            res.status(201).json(response)
+            res.status(200).json(response)
             res.locals['response'] = 201
         }
         catch (error) {
