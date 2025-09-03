@@ -1,12 +1,10 @@
-export const { MongoClient } = require('mongodb')
+import { MongoClient } from 'mongodb' 
 
 let client:any = null
 
-export const open = async (url:String) => {
+export const open = async (url:string=process.env.MONGO_URL!) => {
     if (!client) {
         client = new MongoClient(url)
-    
-        
         await client.connect()
     }
 }

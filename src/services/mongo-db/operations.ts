@@ -1,8 +1,8 @@
 import { getClient } from "./connection"
 export class MongodbOperations {
 
-    dbName:string
-    collectionName:string
+    dbName: string
+    collectionName: string
     constructor({ dbName, collectionName }: { dbName: string, collectionName: string }) {
         this.dbName = dbName
         this.collectionName = collectionName
@@ -32,5 +32,14 @@ export class MongodbOperations {
         const response = await this.MyCollection.insertOne(item)
         return response;
     }
+    async findItem({ filter = {}, project = {} } = {}) {
+        return await this.MyCollection.findOne(filter, project)
+    }
+    async find({ filter = {}, project = {} } = {}) {
+        return await this.MyCollection.find(filter, project).toArray()
+    }
+    async updateItem({ filter = {}, set = {} }) {
+        const response = await this.MyCollection.updateOne(filter, set)
+        return response
+    }
 }
-
