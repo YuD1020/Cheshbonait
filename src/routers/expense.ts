@@ -5,12 +5,8 @@ export const router: Express = express();
 router.use('', express.json())
 router.post('/expense', async(req: Request, res: Response, next: NextFunction) => {
     if (!res.locals['response']) {
-        console.log("req.body")
-        console.log(req.body)
         try {
             const { provider, category, sum, date } = req.body
-            console.log(provider, category, sum, date)
-
             const response = await createExpence({ provider, category, sum, date })
             res.status(201).json(response)
             res.locals['response'] = 201
