@@ -1,5 +1,5 @@
 import { NextFunction } from "express"
-import {createExpence} from'../update/expense'
+import {createExpense} from'../update/expense'
 import express, { Express, Request, Response } from "express";
 export const router: Express = express();
 router.use('', express.json())
@@ -7,7 +7,7 @@ router.post('/expense', async(req: Request, res: Response, next: NextFunction) =
     if (!res.locals['response']) {
         try {
             const { provider, category, sum, date } = req.body
-            const response = await createExpence({ provider, category, sum, date })
+            const response = await createExpense({ provider, category, sum, date })
             res.status(201).json(response)
             res.locals['response'] = 201
         }
