@@ -1,6 +1,6 @@
 import { MongodbOperations } from "../services/mongo-db/operations";
 
-const operations = new MongodbOperations({ dbName: 'bookkeeping', collectionName: 'expences' })
+const operations = new MongodbOperations({ dbName: 'bookkeeping', collectionName: 'expenses' })
 export const findAllExpense = async () => {
     return await operations.find()
 

@@ -1,6 +1,6 @@
 import { myDate } from "./myDate";
 
-export class Expence {
+export class Expense {
     provider: String;
     category: String;
     sum: number;

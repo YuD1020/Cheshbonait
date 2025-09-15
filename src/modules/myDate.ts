@@ -9,9 +9,11 @@ export class myDate {
         this.day = day;
       
     }
-    toString(){
-        return `${this.day}-${this.month}-${this.year}`
-    }
+    toString() {
+        return `${this.day}-${this.month}-${this.year}`;
+      }
+      
+      
 }
 
 
