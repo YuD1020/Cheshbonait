@@ -13,8 +13,9 @@ const PORT = parseInt(process.env.PORT || "8080", 10);
 const HOST = process.env.HOST || "0.0.0.0";
 const MONGO_URL = process.env.MONGO_URL!;
 
+
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); 
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server");
