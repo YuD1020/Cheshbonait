@@ -1,7 +1,7 @@
 {
   "name": "Node.js + TS Server",
   "dockerComposeFile": "../docker-compose.yml",
-  "service": "app",
+  "service": "server",
   "workspaceFolder": "/workspace",
   "settings": {
     "terminal.integrated.shell.linux": "/bin/bash"
@@ -9,8 +9,10 @@
   "extensions": [
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "ms-vscode.vscode-typescript-next"
+    "ms-vscode.vscode-typescript-next",
+    "mongodb.mongodb-vscode"
   ],
-  "forwardPorts": [3000, 27017],
-  "postCreateCommand": ""  
+  "forwardPorts": [8080, 27017],
+  "postCreateCommand": "npm install",  
+  "remoteUser": "node" 
 }

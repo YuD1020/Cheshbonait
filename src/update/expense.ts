@@ -14,12 +14,6 @@ export const createExpense = async ({
   date: any;
 }) => {
   const expense = new Expense({ provider: provider, category: category, sum: sum, date: date });
-  console.log("------------------");
-  console.log(expense);
-
   const response = await operations.addItem(expense);
-  console.log("------------------");
-  console.log(response);
-
   return response;
 };
