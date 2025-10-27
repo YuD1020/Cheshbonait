@@ -56,17 +56,19 @@ npm run dev
 # Run frontend
 cd ../client
 npm start
-
+```
 ---
 
 📂 Project Structure
+```
 project-root
 │── client/         # React + TypeScript frontend
 │── server/         # Node.js + Express + TypeScript backend
 │── docs/           # API documentation (Swagger)
 │── tests/          # Unit & integration tests
 │── README.md
-
+```
+----
 🎯 Project Goals
 
 Deliver a professional-grade bookkeeping tool tailored for small businesses.
