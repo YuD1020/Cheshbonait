@@ -6,6 +6,7 @@ The system focuses on **clarity, usability, and reliability**, providing both a 
 ---
 
 ## 🌟 Highlights
+
 - **End-to-End TypeScript**: Both backend (Node.js + Express) and frontend (React) are implemented with TypeScript for type safety and scalability.  
 - **User-Friendly Dashboard**: Visualize income and expenses with **tables, charts, and filters**. Compare data across **months, years, or custom time ranges** for better insights.  
 - **Data Export & Import**: Generate professional PDF reports (via jsPDF), upload files (via Multer), and store structured data in MongoDB.  
@@ -20,6 +21,7 @@ The system focuses on **clarity, usability, and reliability**, providing both a 
 ---
 
 ## 🛠️ Tech Stack
+
 - **Frontend**: React + TypeScript  
 - **Backend**: Node.js + Express + TypeScript  
 - **Database**: MongoDB  
@@ -37,6 +39,7 @@ The system focuses on **clarity, usability, and reliability**, providing both a 
 ---
 
 ## 🚀 Getting Started
+
 ```bash
 # Clone repository
 git clone https://github.com/YuD1020/Cheshbonait.git
@@ -57,10 +60,12 @@ npm run dev
 cd ../client
 npm start
 ```
+
 ---
 
 📂 Project Structure
-```
+
+```code
 project-root
 │── client/         # React + TypeScript frontend
 │── server/         # Node.js + Express + TypeScript backend
@@ -68,7 +73,9 @@ project-root
 │── tests/          # Unit & integration tests
 │── README.md
 ```
-----
+
+---
+
 🎯 Project Goals
 
 Deliver a professional-grade bookkeeping tool tailored for small businesses.
